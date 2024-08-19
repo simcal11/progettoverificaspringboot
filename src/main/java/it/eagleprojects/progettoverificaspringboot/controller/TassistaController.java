@@ -24,7 +24,7 @@ public class TassistaController {
     }
 
     @Operation(summary = "Metodo che permette di ottenere un Tassista con un id specificato")
-    @GetMapping (value = "/tassista/${id}", produces = "application/json")
+    @GetMapping (value = "/tassista/{id}", produces = "application/json")
     public @ResponseBody Tassista getTassistaById(@PathVariable(value = "id") Long id) throws Exception {
         return tassistaService.getTassistaById(id);
     }
@@ -36,13 +36,13 @@ public class TassistaController {
     }
 
     @Operation(summary = "Metodo che permette di modificare un Tassista con un id specificato")
-    @PutMapping (value = "/tassista/${id}", consumes = "application/json", produces = "application/json")
+    @PutMapping (value = "/tassista/{id}", consumes = "application/json", produces = "application/json")
     public @ResponseBody Tassista getTassistaById(@PathVariable(value = "id") Long id, @RequestBody Tassista tassistaRequest) throws Exception {
         return tassistaService.updateTassistaById(id, tassistaRequest);
     }
 
     @Operation(summary = "Metodo che permette di eliminare un Tassista con un id specificato")
-    @DeleteMapping (value = "/tassista/${id}")
+    @DeleteMapping (value = "/tassista/{id}")
     public void deleteTassistaById(@PathVariable(value = "id") Long id) throws Exception {
         tassistaService.deleteTassistaById(id);
     }

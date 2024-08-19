@@ -26,7 +26,7 @@ public class AutoController {
     }
 
     @Operation(summary = "Metodo che permette di ottenere una Auto con un id specificato")
-    @GetMapping (value = "/auto/${id}", produces = "application/json")
+    @GetMapping (value = "/auto/{id}", produces = "application/json")
     public @ResponseBody Auto getAutoById(@PathVariable(value = "id") Long id) throws Exception {
         return autoService.getAutoById(id);
     }
@@ -38,13 +38,13 @@ public class AutoController {
     }
 
     @Operation(summary = "Metodo che permette di modificare una Auto con un id specificato")
-    @PutMapping (value = "/auto/${id}", consumes = "application/json", produces = "application/json")
+    @PutMapping (value = "/auto/{id}", consumes = "application/json", produces = "application/json")
     public @ResponseBody Auto getTassistaById(@PathVariable(value = "id") Long id, @RequestBody Auto autoRequest) throws Exception {
         return autoService.updateAutoById(id, autoRequest);
     }
 
     @Operation(summary = "Metodo che permette di eliminare una Auto con un id specificato")
-    @DeleteMapping (value = "/auto/${id}")
+    @DeleteMapping (value = "/auto/{id}")
     public void deleteAutoById(@PathVariable(value = "id") Long id) throws Exception {
         autoService.deleteAutoById(id);
     }
